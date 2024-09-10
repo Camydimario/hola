@@ -1,0 +1,89 @@
+public class DiasLLuviosos {
+    
+private boolean [] diasLLuviosos; 
+public DiasLLuviosos () {
+diasLLuviosos= new boolean [365];
+}
+	public void registrarQueLlovioElDia(int diaDeAnio, boolean llovio) {
+
+     if(diaDeAnio > 1 && diaDeAnio  < 365 ){ 
+        diasLLuviosos [diaDeAnio- 1] = llovio;
+    }
+
+}  
+ 
+   public boolean consultarSiLlovioElDia(int diaDelAnio) {
+          
+    return diasLLuviosos [diaDelAnio-1];
+    }
+     int contarDiasLluviosos(){
+       int contar = 0;
+       for (boolean llovio : diasLLuviosos) {
+        if (llovio) {
+            contar++;
+        }
+    }   
+    
+    return contar;
+}
+
+
+       // for(int i = 0; i < diasLLuviosos.length; i ++) {
+     //   contar += diasLLuviosos[i]
+
+    public int consultarCuatrimestreMasLluvioso() {
+        int [] cuatrimestres = new int [4];
+         
+        
+         for (int i = 0; i < 365; i++) {
+            int cuatrimestre = (i / 90) + 1;
+            if (diasLLuviosos[i]) {
+                cuatrimestres[cuatrimestre - 1]++;
+            }
+        }
+        return 0;
+    }
+     /*  int maxCuatrimestre = 0;
+      int maxDiasLLuviosos = 0;
+      for(int i = 0 ; i < 4 ; i++) {
+        if (cuatrimestres[i] > maxDiasLLuviosos ) {
+            maxDiasLLuviosos = cuatrimestres [i];
+            maxCuatrimestre = i + 1;
+        }
+        
+       return maxCuatrimestre;
+      }
+    return maxDiasLLuviosos;
+    }
+   */
+      public int consultarPrimerDiaConLluvia(){
+    for (int i = 0; i < 365; i++) {
+          if ( diasLLuviosos[i]) {
+              return i + 1;
+     }
+}
+
+       return -1;
+}
+
+public static void main(String[] args){
+    DiasLLuviosos lluvia = new DiasLLuviosos();
+
+    lluvia.registrarQueLlovioElDia(2, false);
+    System.out.println("llovio?");
+    System.out.println(lluvia.consultarSiLlovioElDia(2));
+
+    lluvia.contarDiasLluviosos();
+    System.out.println("dias lluviosos " +  lluvia.contarDiasLluviosos());
+
+    lluvia.consultarCuatrimestreMasLluvioso();
+    System.out.println("cuatrimestre mas lluviosos " +  lluvia.consultarCuatrimestreMasLluvioso());
+
+lluvia.consultarPrimerDiaConLluvia();
+System.out.println("primer dia con lluvia " +  lluvia.consultarPrimerDiaConLluvia());
+
+
+
+}
+
+}
