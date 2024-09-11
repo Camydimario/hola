@@ -1,0 +1,108 @@
+//sin terminar
+
+public class VerificadorDeOrden {
+
+
+    public boolean verificar(int[] enteros, boolean ascendiente) {
+
+        for (int i = 0; i < enteros.length - 1; i++) {
+            if (ascendiente) {
+                if (enteros[i] > enteros[i + 1]) {
+                    return false;
+                }
+
+
+            } else {
+                if (enteros[i] < enteros[i + 1]) {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+        return ascendiente;
+    }
+
+
+}
+
+    /*     for (int i = 0; i < size; i++) {
+    array[i] = i + 1
+     *
+     *
+     *
+     *
+     */
+    /*public void Ascendiente (int [] enteros) {
+        for (int i = 0; i < enteros.length ; i ++) {
+            enteros[i] = i + 1;
+        }
+    }
+*/
+
+  /*  public boolean verificarOrden(int [] enteros, Orden orden) {
+        for (int i = 0; i < enteros.length - 1; i++) {
+            if (orden == Orden.ascendiente) {
+                if (enteros[i] > enteros[i + 1]) {
+                    return false;
+                }
+            } else {
+                if (enteros[i] < enteros[i + 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public void Descendiente(int [] enteros) {
+        int auxiliar;
+        int tam = enteros.length;
+        for (int i = 0;   i <(tam/2) - 1 ; i++) {
+            auxiliar = enteros[i];
+            enteros[i] = enteros [tam -1 - i];
+            enteros[tam - 1 - i] = auxiliar;
+        }
+    }
+
+    /*   int MasGrande = 10;
+         int MasChico = 1;
+      for(int  i = 0; i < enteros.length ;i ++) {
+        if (enteros[i] < MasGrande ) {
+          return true;
+      }
+      if (enteros[i]> MasChico){
+       return true;
+      }
+
+         }
+     return false;
+
+ }
+*/
+
+public class Main {
+    public static void main(String[] args) {
+        VerificadorDeOrden verifi = new VerificadorDeOrden();
+        int[] enteros = {1, 2, 3, 4, 5};
+
+
+        boolean ordenado = verifi.verificar(enteros, true); // Check for ascending order
+        System.out.println("Ordenado ascendente: " + ordenado);
+
+        int[] array2 = {5, 4, 3, 2, 1};
+        ordenado = verifi.verificar(array2, false); // Check for descending order
+        System.out.println("Ordenado descendente: " + ordenado);
+    }
+}
+
+
+
+
+
+
+
+
+
+
