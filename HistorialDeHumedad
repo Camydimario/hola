@@ -1,0 +1,145 @@
+//falta concretar la medicion de humedad, consultar profe
+
+
+    public class HistorialDeHumedad {
+
+  /* pre: se necesita saber la cantidad de mediciones a realizar.
+   la mediciones estan comprendidas entre los valores entre 50 ° y 100°
+
+  post: se inicializa las mediciones con sus calculos conrrespondientes para recorrer el vector
+
+  */
+
+        private int mediciones;
+
+        public int MedicionDeHumedad(int[] humedad) {
+
+            for (int i = 0; i < humedad.length; i++) {
+
+                if (mediciones > 50 && mediciones < 100) {
+                    if (humedad[i] < mediciones) {
+                        mediciones = humedad[i];
+
+                    }
+
+                }
+            }
+
+       return mediciones;
+        }
+
+        /*
+         * pre: se necesita saber la cantidad de muestras realizadas a almacenar
+         *
+         * post: las muestras se almacenan
+         *
+         */
+
+
+        public int AlmacenarMuestras(int[] humedad) {
+
+            //int almacenar = 0;
+
+            for (int i = 0; i < humedad.length; i++) {
+                return humedad.length;
+
+                //if (almacenar < humedad[i]) {
+                // humedad[i] = almacenar;
+            }
+
+
+            // return humedad.length
+
+
+            return 0;
+        }
+
+
+
+/*
+pre: se necesita saber el promedio del total de la humedad
+
+post: se calcula el promedio
+
+
+*/
+
+
+        public double promedio(int[] humedad) {
+            double suma = 0;
+            for (int i = 0; i < humedad.length; i++) {
+                suma += humedad[i];
+
+            }
+            return suma / humedad.length;
+
+        }
+
+        /*
+         * pre: senecesita saber el calculo minimo de humedad que se realiza
+         * en las mediciones
+         *
+         * post: se obteine el valor minimo de humedad
+
+         */
+
+
+        public int MinimoDeHumedad(int[] humedad) {
+
+            int minimo = humedad[0];
+
+            for (int i = 0; i < humedad.length; i++) {
+
+                if (humedad[i] < minimo) {
+
+                    minimo = humedad[i];
+                }
+            }
+            return minimo;
+        }
+
+        /*
+         * pre: senecesita saber el calculo maximo de humedad que se realiza
+         * en las mediciones
+         *
+         * post: se obtiene el valor maximo de humedad
+
+         */
+
+        public int MaximoDeHumedad(int[] humedad) {
+            int maximo = humedad[0];
+            for (int i = 0; i < humedad.length; i++) {
+
+                if (humedad[i] > maximo) {
+
+                    maximo = humedad[i];
+                }
+            }
+            return maximo;
+        }
+
+        public static void main(String[] args) {
+            int[] h = {60, 50, 55, 80, 99};
+            HistorialDeHumedad humedad = new HistorialDeHumedad();
+
+            humedad.AlmacenarMuestras(h);
+            System.out.println("Almacena muestras" + humedad.AlmacenarMuestras(h));
+            humedad.MedicionDeHumedad(h);
+            System.out.println("Medicion de humedad"+ humedad.MedicionDeHumedad(h));
+
+            humedad.MinimoDeHumedad(h);
+                System.out.println("Minimo de humedad" + humedad.MinimoDeHumedad(h));
+
+                humedad.MaximoDeHumedad(h);
+                System.out.println("Maximo de humedad" + humedad.MaximoDeHumedad(h));
+
+                humedad.promedio(h);
+                System.out.println("Obtener promedio" + humedad.promedio(h));
+            }
+
+        }
+
+
+
+
+
