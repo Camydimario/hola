@@ -1,3 +1,4 @@
+
 public class DiasLLuviosos {
     
 private boolean [] diasLLuviosos; 
@@ -13,51 +14,58 @@ diasLLuviosos= new boolean [365];
 }  
  
    public boolean consultarSiLlovioElDia(int diaDelAnio) {
-          
+   if(diaDelAnio > 1 && diaDelAnio < 365){
     return diasLLuviosos [diaDelAnio-1];
-    }
+   }       
+   
+    return false;
+   
+
+}
      int contarDiasLluviosos(){
        int contar = 0;
-       for (boolean llovio : diasLLuviosos) {
-        if (llovio) {
-            contar++;
+       for(int i = 0; i < diasLLuviosos.length; i ++)
+         if(diasLLuviosos[i]) {
+           contar++;
         }
-    }   
+ 
+        return contar;
+    }
+      //otra forma: 
+    //for (boolean llovio : diasLLuviosos) {
+      //  if (llovio) {
+       //     contar++;
+        //}
+   // }   
     
-    return contar;
-}
-
-
-       // for(int i = 0; i < diasLLuviosos.length; i ++) {
-     //   contar += diasLLuviosos[i]
 
     public int consultarCuatrimestreMasLluvioso() {
         int [] cuatrimestres = new int [4];
          
         
-         for (int i = 0; i < 365; i++) {
-            int cuatrimestre = (i / 90) + 1;
+         for (int i = 0; i < diasLLuviosos.length; i++) {
+            int cuatrimestre = (i / 90);
             if (diasLLuviosos[i]) {
-                cuatrimestres[cuatrimestre - 1]++;
+                cuatrimestres[cuatrimestre] ++;
             }
-        }
-        return 0;
+        
+        
     }
-     /*  int maxCuatrimestre = 0;
-      int maxDiasLLuviosos = 0;
-      for(int i = 0 ; i < 4 ; i++) {
-        if (cuatrimestres[i] > maxDiasLLuviosos ) {
+      int maxCuatrimestre = 0;
+      
+      for(int i = 1 ; i < cuatrimestres.length; i++) {
+        if (cuatrimestres[i] > cuatrimestres[ maxCuatrimestre]) {
             maxDiasLLuviosos = cuatrimestres [i];
-            maxCuatrimestre = i + 1;
+            maxCuatrimestre = i;
         }
         
-       return maxCuatrimestre;
+       
       }
-    return maxDiasLLuviosos;
+      return maxCuatrimestre + 1;
     }
-   */
+
       public int consultarPrimerDiaConLluvia(){
-    for (int i = 0; i < 365; i++) {
+    for (int i = 0; i < diasLLuviosos.length; i++) {
           if ( diasLLuviosos[i]) {
               return i + 1;
      }
@@ -87,3 +95,4 @@ System.out.println("primer dia con lluvia " +  lluvia.consultarPrimerDiaConLluvi
 }
 
 }
+
