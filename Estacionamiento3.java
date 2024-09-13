@@ -40,23 +40,23 @@ this.LiberarEspacio=LiberarEspacio;
     public void OcuparEspacio(int numero) {
 
         for (int i = 0; i < capacidad.length; i++) {
-            if (Lugaresdisponible == numero) {
+            if (Lugaresdisponible == desocupado) {
                 estaLibre = true;
                 ocupado++;
             }
 
-            out.println("ocupar el numero" + " = " +  numero );
+            out.println("ocupar el numero" + " = " +  ocupado );
         }
     }
 
 public void DesocuparEspacio(int numero) {
     for (int i = 0; i < capacidad.length; i++) {
-        if(Lugaresdisponible == ocupado){
+        if(Lugaresdisponible  < ocupado){
             estaLibre = true;
             desocupado++;
         }
     }
-    out.println("desocupar el numero" + " = " +  numero);
+    out.println("desocupar el numero" + " = " +  desocupado);
 }
     public double PorcentajeDeLugaresOcupados(){
 
@@ -80,14 +80,14 @@ public void DesocuparEspacio(int numero) {
 
 
     public int ContarVecesDesocupados() {
-        int desocupar = 0;
+        int desocupado = 0;
         for (int i = 0; i <capacidad.length; ++i) {
-            if(capacidad[i] == desocupar ) {
-                desocupar ++;
+            if(capacidad[i] == desocupado ) {
+                desocupado ++;
             }
         }
 
-        return desocupar;
+        return desocupado;
     }
 
 
@@ -119,6 +119,7 @@ public void DesocuparEspacio(int numero) {
         estacionamientito.DesocuparEspacio(7);
         estacionamientito.DesocuparEspacio(6);
         estacionamientito.DesocuparEspacio(2);
+        estacionamientito.DesocuparEspacio(1);
         out.println("Veces ocupado" + "= "+ estacionamientito.contarVecesOcupados() + estacionamientito.ocupado);
         out.println("porcentaje " + estacionamientito.PorcentajeDeLugaresOcupados());
         out.println( "Devolver Lugares " + estacionamientito.DevolverLugaresUsados()+ estacionamientito.ocupado);
