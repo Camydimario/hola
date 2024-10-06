@@ -1,0 +1,125 @@
+import java.util.Arrays;
+
+public class AnalizadorDeMatrices {
+
+    /**
+     * post: devuelve la cantidad de elementos de ‘matriz’ que
+     * tenga al menos un valor 0.
+     */
+    public int contarCeros(double[][] matriz) {
+        int contar = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] == 0) {
+                    contar++;
+                }
+            }
+        }
+
+        return contar;
+    }
+
+    /**
+     * post: devuelve la cantidad de elementos de ‘matriz’ cuyo valor
+     * esté en el rango [‘desde’, ‘hasta’].
+     */
+    public int contarElementosEnElRango(double[][] matriz, double desde, double hasta) {
+        int contarRango = 0;
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] > desde && matriz[i][j] < hasta) {
+                    contarRango++;
+                }
+
+            }
+
+        }
+        return contarRango;
+
+    }
+    //columnas
+
+    /**
+     * pre: ‘matriz’ es regular.
+     * post: devuelve la cantidad de columnas de ‘matriz’ que tenga
+     * al menos un valor 0.
+     */
+    public int contarColumnasConCeros(double[][] matriz) {
+        int contarColumnas = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if (0 == matriz[j][i]) {
+                    contarColumnas++;
+                }
+            }
+            }
+        return contarColumnas;
+    }
+    
+
+
+    /**
+     * post: devuelve la cantidad de filas de ‘matriz’ que tenga
+     *       al menos un valor 0.
+     */
+    public int contarFilasConCeros(double[][] matriz){
+    int contarFilas = 0;
+        for (int i = 0; i < matriz.length; i++) {
+        for (int j = 0; j < matriz[i].length; j++) {
+            if (0 == matriz[i][j]) {
+                contarFilas++;
+            }
+        }
+
+    }
+        return contarFilas;
+}
+
+
+    /**
+     * post: devuelve un arreglo (con tantos elementos como filas tiene
+     *       'matriz') que tiene en cada posición el promedio de una fila del
+     *       arreglo 'matriz'.
+     */
+    public double[] promediarFilas(double[][] matriz) {
+        double suma = 0;
+        for (int i = 0; i < matriz.length; i++){
+            for (int j = 0; j < matriz[i].length; j++) {
+            suma += matriz[i][j];
+        }
+
+
+        }
+        return new double[]{suma / matriz.length};
+    }
+
+
+
+
+
+
+
+
+
+    public static void main(String[] args) {
+    AnalizadorDeMatrices a = new AnalizadorDeMatrices();
+        double [] [] matriz = {
+        {1, 2, 0},
+        {2, 3, 0},
+        {1, 22, 0},
+
+
+        };
+
+
+
+        System.out.println(a.contarCeros(matriz));
+        System.out.println(a.contarElementosEnElRango(matriz,3,22));
+        System.out.println(a.contarColumnasConCeros(matriz));
+        System.out.println(a.contarFilasConCeros(matriz));
+        System.out.println(Arrays.toString(a.promediarFilas(matriz)));
+
+    }
+
+}
