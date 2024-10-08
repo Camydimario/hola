@@ -1,0 +1,238 @@
+public class MatrizMatematica {
+    private double[][] valores;
+
+    //constructor
+    public MatrizMatematica() {
+        this.valores = valores;
+    }
+
+
+//metodos
+
+    public double CantidadFilas(double[][] valores) {
+       int cantidadFilas = 0;
+        for (int i = 0; i < valores.length; i++) {
+            for (int j = 0; j < valores[i].length; j++) {
+                if ( cantidadFilas  == valores[i][j] ) {
+                    cantidadFilas++;
+                }
+            }
+
+        }
+        return cantidadFilas;
+    }
+
+    public double CantidadColumnas(double[][] valores) {
+        double cantidadColumnas = 0;
+        for (int i = 0; i < valores.length; i++) {
+            for (int j = 0; j < valores[i].length; j++) {
+                if (valores[i][j] == cantidadColumnas) {
+                    cantidadColumnas++;
+                }
+            }
+
+        }
+        return cantidadColumnas;
+    }
+public int Cantidadddfilas (double[][] valores) {
+       return valores.length;
+
+
+}
+
+    public int CantidaddColumnass (double[][] valores) {
+        if (valores.length == 0) {
+            return 0;
+        }
+
+    return valores[0].length;
+    }
+
+public int ObtenerValores (int n, int m) {
+    int obtener = 0;
+    for (int i = 0; i < valores.length; i++) {
+        {
+            if (valores[i][0] == n) {
+                n++;
+
+            }
+            for (int j = 0; j < valores[i].length; j++) {
+                if (valores[0][i] == m) {
+                    m++;
+                }
+            }
+        }
+    }
+return obtener;
+    }
+
+
+public boolean EsCuadrada(double[][] valores) {
+        boolean cuadrada = true;
+    for (int i = 0; i < valores.length; i++) {
+        for (int j = 0; j < valores[i].length; j++) {
+            if (i==j){
+            cuadrada = cuadrada && valores[i] == valores[j];
+        }
+            else {
+                cuadrada = valores[i][j] == 0 ;
+            }
+
+        }
+    }
+    return cuadrada;
+    }
+
+
+
+        public boolean EsIdenntidad(double[][] valores) {
+            boolean identidad = true;
+            for (int i = 0; i < valores.length; i++) {
+                for (int j = 0; j < valores[i].length; j++) {
+                    if (i == j) {
+                        identidad= identidad &&  valores[i][j] == 1;
+                    } else {
+                        identidad = valores[i][j] == 0;
+                    }
+
+
+                }
+            }
+            return identidad;
+
+        }
+    public boolean EsDiagonal(double[][] valores) {
+        boolean diagonal = true;
+        for (int i = 0; i < valores.length; i++) {
+            for (int j = 0; j < valores[i].length; j++) {
+                if (i == j) {
+                    diagonal = valores[i][j] == 1;
+                }
+
+
+            }
+        }
+        return diagonal;
+
+    }
+
+public static void main (String [] args){
+    MatrizMatematica matriz = new MatrizMatematica();
+        double [] [] matrizA = {
+                {1, 3 ,4 ,5},
+                {1, 1 ,4 ,5},
+                {1, 3 ,1 ,4},
+                {1, 3 ,4 ,1},
+        };
+    double [] [] matrizB= {
+            {1, 0 ,0 ,0},
+            {0, 1 ,0 ,0},
+            {0, 0 ,1 ,0},
+            {0, 0 ,0 ,1},
+    };
+
+    double [] [] matrizC = {
+            {1, 3 ,4 ,5},
+            {1, 0 ,4, 2},
+
+    };
+//matriz A
+    System.out.println("Matriz A : ");
+
+    System.out.println(matriz.Cantidadddfilas(matrizA));
+    System.out.println(matriz.CantidaddColumnass(matrizA));
+    //System.out.println(matriz.ObtenerValores(1, 3));
+    System.out.println(matriz.EsCuadrada(matrizA));
+    System.out.println(matriz.EsDiagonal(matrizA));
+    System.out.println(matriz.EsIdenntidad(matrizA));
+
+    //matriz B
+    System.out.println("Matriz B : ");
+
+    System.out.println(matriz.Cantidadddfilas(matrizB));
+    System.out.println(matriz.CantidaddColumnass(matrizB));
+    System.out.println(matriz.EsCuadrada(matrizB));
+    System.out.println(matriz.EsDiagonal(matrizB));
+    System.out.println(matriz.EsIdenntidad(matrizB));
+
+ //matriz C
+
+    System.out.println("Matriz C : ");
+    System.out.println(matriz.Cantidadddfilas(matrizC));
+    System.out.println(matriz.CantidaddColumnass(matrizC));
+    System.out.println(matriz.EsCuadrada(matrizC));
+    System.out.println(matriz.EsDiagonal(matrizC));
+    System.out.println(matriz.EsIdenntidad(matrizC));
+
+
+    }
+
+
+//test
+package testMatriz;
+
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class PruebaMatriz {
+
+
+@Test
+
+public void matrizMatematicaIdentidadTest(){
+
+ double [] [] datos = {
+
+{2,1}, {4,6}};
+ MatrizMatematica m = new MatrizMatematica(datos);
+ Assertions.assertFalse(m.EsIdenntidad(datos));
+//en este caso da falso , si ponres true da error porque es falso.
+
+
+ };
+@Test
+public void matrizMatematicaCUadradaTest(){
+
+ double [] [] datito = {
+
+  {1,11,1,1},
+  {1,11,1,1},
+  {1,11,1,1},
+  {1,11,1,1},
+ };
+   MatrizMatematica a = new MatrizMatematica(datito);
+   Assertions.assertFalse(a.EsCuadrada(datito));
+
+
+}
+ 
+@Test
+
+public void matrizDiagonal(){
+
+double [] [] datitin = {
+
+{1,1,1,1},
+{1,1,1,1},
+{1,1,1,1},
+{1,1,1,1},
+};
+
+MatrizMatematica b = new MatrizMatematica(datitin);
+Assertions.assertTrue(b.EsDiagonal(datitin));
+
+}
+
+
+
+
+
+
+}
+
+
+
+
+
