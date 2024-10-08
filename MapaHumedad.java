@@ -155,6 +155,57 @@ public class MapaHumedad {
 
 }
 
+    // test
+package testHumedad;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class PruebasHumedad {
+
+@Test
+
+public void LasMuestrasSonNegativas (){
+
+double [] [] muestras = {
+
+{1,1,1,1},
+{1,1,1,1},
+{1,1,1,1},
+};
+
+MapaHumedad a = new MapaHumedad ();
+ Assertions.assertEquals(a.AlmacenarMuetras(muestras), -1);
+}
+//dara error
+
+@Test 
+
+public void ElMinimoDeHumedadNoPuedeSerNegativo () {
+
+double [] [] minimo = {
+
+{1,0,2},
+{2,6,3},
+{5,1,10},
+
+};
+
+MapaHumedad b = new MapaHumedad ();
+Assertions.assertEquals (b.MinimoHumedad(minimo), -1);
+Assertions.assertTrue(b.MinimoHumedad(minimo), -1);
+}
+//daria falso
+
+
+
+
+
+
+}
+    
 
 
 
