@@ -123,3 +123,117 @@ public class AnalizadorDeMatrices {
     }
 
 }
+
+
+//test
+package testMatrices;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+
+public class PruebaMatrices {
+    
+    private AnalizadorDeMatrices analizador = new AnalizadorDeMatrices();
+ 
+ 
+    @Test
+    public void contarCerosEnUnaMatrizDe4Por3QueNoTieneCeros() {
+   	 
+   	 double[][] matriz = {
+   		 { 5.0,  3.5,  2.4 },
+   		 { 2.1, -9.2,  5.1 },
+   		 { 2.3,  7.9, -2.3 },
+   		 { 1.0,  6.1, -8.5 }
+   	 };
+    
+   	assertEquals(0, analizador.contarCeros(matriz));
+    
+    }
+    @Test
+    public void contarCerosEnUnaMatrizDe2Por4QueTiene3Ceros() {
+   	 
+   	 double[][] matriz = {
+   			 { 2.0, 0.0,  3.4, 0.0 },
+   			 { 0.0, 5.7, -2.3, 9.8 },
+   	 };
+   	 
+        Assertions.assertEquals(3, analizador.contarCeros(matriz));
+    }
+    
+    @Test
+    public void contarCerosEnUnaMatrizDe1Por1QueNoTieneCeros() {
+   	 
+   	 double[][] matriz = {
+   			 { 1.6 },
+   	 };
+   	 
+   	 Assertions.assertEquals(0, analizador.contarCeros(matriz));
+    }
+
+    @Test
+    public void todosSonIgualesYestanDentroDelRangoTest(){
+
+double [][] matriz = {
+
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+};
+
+Assertions.assertEquals(36, analizador.contarElementosEnElRango(matriz, 1, 1));
+//da mal xq es asi
+
+}
+
+
+
+@Test
+public void todosSonIgualesYNOestanDentroDelRangoTest(){
+
+double [][] matriz = {
+
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+{1,1,1,1,1,1},
+};
+
+Assertions.assertEquals(0, analizador.contarElementosEnElRango(matriz, -1, 0.01));
+//Este si da bien
+
+}
+
+@Test public void matrizVacia(){
+
+    double [][] matriz = {};
+
+    Assertions.assertEquals(0, analizador.contarElementosEnElRango(matriz, 1, 1));
+}
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
