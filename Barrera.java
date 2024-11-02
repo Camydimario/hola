@@ -23,3 +23,12 @@ public class Barrera extends Actor {
         Barrera barrera = new Barrera();
         addObject(barrera, 0, 0); // Posición inicial
     }
+//en dondepusiste vos cambiamos el for
+   NaveDeAtaque naveAliada = new NaveDeAtaque();
+    agregar(naveAliada, xNaveAliada, yNaveAliada);
+    agregar(new portal2(), ancho-15, alto-6);
+    agregar(new portal(), ancho-2, alto-2);
+    for (int i = 0; i <alto; i++){
+     agregar(new Barrera(),ancho/2 , alto-1-i);
+    
+    }
