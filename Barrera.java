@@ -9,10 +9,10 @@ public class Barrera extends Actor {
 }
 
   // Crear barreras fijas en posiciones específicas
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
                 Barrera barrera = new Barrera(); //  nueva barrera
-                addObject(barrera, col * 60 + 30, row * 60 + 30); // Posicion barrera
+                addObject(barrera, j * 60 + 30, i * 60 + 30); // Posicion barrera
             }
         }
     }
